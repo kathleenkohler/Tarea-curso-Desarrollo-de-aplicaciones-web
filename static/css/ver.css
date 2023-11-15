@@ -1,0 +1,32 @@
+body {
+  background-color: #e3f8f8;
+}
+table {
+  margin: 5%;
+  font-style: oblique;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+th, td {
+  background-color: #96D4D4;
+  border-style: outset;
+  border: 3px solid white;
+  border-collapse: collapse;
+}
+
+#donaciones, #pedidos {
+  font-style: oblique;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+#inicio {
+  background-color:rgb(154, 181, 255);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  cursor: pointer;
+}
+

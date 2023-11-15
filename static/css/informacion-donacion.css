@@ -1,0 +1,57 @@
+.don {
+    background-color: rgba(229, 238, 254, 0);
+}
+.info {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+#don {
+    background-color:rgb(154, 181, 255);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    cursor: pointer;
+  }
+#donacion {
+    font-style: oblique;
+}
+body {
+    background-color: rgb(247, 213, 245);
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 1% auto; /* 10% from the top and centered */
+  padding: 10px;
+  border: 1px solid #888;
+  width: 110%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

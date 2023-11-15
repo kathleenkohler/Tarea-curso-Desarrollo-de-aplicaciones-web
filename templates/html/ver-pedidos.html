@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ver.css')}}">
+</head>
+<body>
+  <div>
+      <h1 id="pedidos">Pedidos</h1>
+  </div>
+  <table>
+      <tr>
+        <th>Comuna</th>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Cantidad</th>
+        <th>Nombre solicitante</th>
+      </tr>
+      {% if data %}
+          {% for ped in data%}
+          <tr class="row">
+              <td><a href="{{ url_for('info_pedido', id=ped.id) }}">
+                {{ ped.comuna }}
+              </a></td>
+              <td><a href="{{ url_for('info_pedido', id=ped.id) }}">
+                {{ ped.tipo }}
+              </a></td>
+              <td><a href="{{ url_for('info_pedido', id=ped.id) }}">
+                {{ ped.descripcion }}
+              </a></td>
+              <td><a href="{{ url_for('info_pedido', id=ped.id) }}">
+                {{ ped.cantidad }}
+              </a></td>
+              <td><a href="{{ url_for('info_pedido', id=ped.id) }}">
+                {{ ped.nombre }}
+              </a></td>
+          </tr>
+          {% endfor %}
+      {% endif %}
+  </table>
+  <div >
+    <span ><a id="atras" href="{{ url_for('ver_pedido', page=pag.pag-1) }}">&#60;</a></span>
+    <span >{{ pag.pag }}</span>
+    <span><a id="adelante" href="{{ url_for('ver_pedido', page=pag.pag+1) }}">&#62;</a></span>
+  </div>
+  <div class="inicio">
+    <a id="inicio" href="{{ url_for('inicio') }}">Volver al inicio</a>  
+  </div>
+  <script src="{{ url_for('static', filename='js/ver-pedidos.js') }}"></script> 
+</body>
+</html>

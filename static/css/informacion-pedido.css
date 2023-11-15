@@ -1,0 +1,21 @@
+.info {
+    display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+#pedido {
+    font-style: oblique;
+}
+.don {
+    background-color: rgba(220, 168, 240, 0);
+}
+body {
+    background-color: rgb(247, 213, 245);
+}
+#ped {
+    background-color:rgb(154, 181, 255);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    cursor: pointer;
+  }

@@ -1,0 +1,33 @@
+{
+    "get_donacion_by_id": "SELECT id, comuna_id, calle_numero, tipo, cantidad, fecha_disponibilidad, descripcion, condiciones_retirar, nombre, email, celular FROM donacion WHERE id=%s",
+    "get_pedido_by_id": "SELECT id, comuna_id, tipo, descripcion, cantidad, nombre_solicitante, email_solicitante, celular_solicitante FROM pedido WHERE id=%s",
+    "get_foto_by_donacion": "SELECT id, ruta_archivo, nombre_archivo, donacion_id FROM foto WHERE donacion_id=%s",
+    "get_Nfoto_by_donacion": "SELECT nombre_archivo FROM foto WHERE donacion_id=%s",
+    "get_foto_by_id":"SELECT id, ruta_archivo, nombre_archivo, donacion_id FROM foto WHERE id=%s",
+    "get_comuna_id": "SELECT id FROM comuna WHERE nombre=%s",
+    "get_region_by_id": "SELECT nombre FROM region WHERE id=%s",
+    "get_region_id_by_comuna":"SELECT region_id FROM comuna WHERE id=%s",
+    "get_comuna_by_id": "SELECT nombre FROM comuna WHERE id=%s",
+    "get_id_donacion":"SELECT id FROM donacion WHERE comuna =%s AND calle_numero=%s AND tipo=%s AND cantidad=%s AND descripcion=%s AND condiciones=%s AND nombre=%s AND email=%s AND celular=%s",
+    "get_donaciones": "SELECT id, comuna_id, calle_numero, tipo, cantidad, fecha_disponibilidad, descripcion, condiciones_retirar, nombre, email, celular FROM donacion ORDER BY id DESC LIMIT %s,5;",
+    "get_pedidos": "SELECT id, comuna_id, tipo, descripcion, cantidad, nombre_solicitante, email_solicitante, celular_solicitante FROM pedido ORDER BY id DESC LIMIT %s,5;",
+    "create_donacion":"INSERT INTO donacion (comuna_id, calle_numero, tipo, cantidad, fecha_disponibilidad, descripcion, condiciones_retirar, nombre, email, celular) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+    "create_pedido": "INSERT INTO pedido (comuna_id, tipo, descripcion, cantidad, nombre_solicitante, email_solicitante, celular_solicitante) VALUES (%s, %s, %s, %s, %s, %s, %s);",
+    "create_foto": "INSERT INTO foto (ruta_archivo, nombre_archivo, donacion_id) VALUES (%s,%s,%s);",
+    "donaciones": "SELECT * FROM donacion",
+    "pedidos": "SELECT * FROM pedido",
+    "create_photo": "INSERT INTO foto (ruta_archivo, nombre_archivo, donacion_id) VALUES (%s, %s, %s);",
+    "get_ruta_by_donacionid": "SELECT ruta_archivo FROM foto WHERE donacion_id=%s;",
+    "get_mapa_don": "SELECT id, comuna_id, calle_numero, tipo, cantidad, fecha_disponibilidad, email FROM donacion ORDER BY id DESC LIMIT 0,5;",
+    "get_mapa_ped": "SELECT id, comuna_id, tipo, cantidad, email_solicitante FROM pedido ORDER BY id DESC LIMIT 0,5;",
+
+    "get_type_fruta_don": "SELECT * FROM donacion WHERE tipo='fruta'",
+    "get_type_verdura_don": "SELECT * FROM donacion WHERE tipo='verdura'",
+    "get_type_otro_don": "SELECT * FROM donacion WHERE tipo='otro'",
+
+    "get_type_fruta_ped": "SELECT * FROM pedido WHERE tipo='fruta'",
+    "get_type_verdura_ped": "SELECT * FROM pedido WHERE tipo='verdura'",
+    "get_type_otro_ped": "SELECT * FROM pedido WHERE tipo='otro'"
+    
+    
+}

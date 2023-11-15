@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/agregar.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+<body>
+  <div class="formul">
+    <div id="donacion">
+      <h1 id="formD"> Formulario Donación</h1>
+    </div>
+    {% if error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+    <div id="val-box" hidden>
+      <h2 id="val-msg">Los siguientes campos son invalidos:</h2>
+      <ul id="val-list"></ul>
+    </div>
+    <form name="form1" method="post" class="formulario" id="formulario" action="donacion" enctype="multipart/form-data">
+      <div id="regionn" class="region-input">
+        Región: 
+          <select id="region" name="region">
+            <option selected value="none">Seleccionar opción </option>
+          </select>
+      </div>
+      <div id="comunas" class="comuna-input">
+        Comuna: 
+          <select id="comuna" name="comuna">
+          </select>
+      </div>
+      <div id="calle-input" class="calle-input">
+        <label for="calle-numero">Calle y número</label>
+        <input id="calle-numero" name="calle-numero" type="text"  size="80" required>
+      </div>
+      <div id="tipoo" class="tipo-input">
+        Tipo donación: 
+          <select id="tipo" name="tipo">
+            <option selected value="none"> Seleccionar opción</option>
+            <option value="fruta">fruta</option>
+            <option value="verdura">verdura</option>
+            <option value="otro">otro</option>
+          </select>
+      </div>
+      <div id="cantidad-input" class="grupo-input">
+        <label for="cantidad">Cantidad:</label>
+        <input id="cantidad" name="cantidad" type="text" size="10" required>
+      </div>
+      <div id="fecha-disponibilidad-input" class="grupo-input">
+        <label for="fecha-disponibilidad">Fecha disponibilidad (año-mes-día):</label>
+        <input id="fecha-disponibilidad" name="fecha-disponibilidad" type="text" size="10" required>
+      </div>
+      <div id="descripcion-input" class="grupo-input">
+        <label for="descripcion">Descripción:</label>
+        <input id="descripcion" name="descripcion" size="80">
+      </div>
+      <div id="condiciones-input" class="grupo-input">
+        <label for="condiciones">Condiciones para retirar:</label>
+        <input id="condiciones" name="condiciones" size="80">
+      </div>
+      <div>
+        <label for="foto-1">Foto donación</label>
+        <input type="file" name="foto-1" id="foto-1" accept="image/*,.pdf" required>
+      </div>
+      <div>
+        <label for="foto-2">Foto donación (opcional)</label>
+        <input type="file" name="foto-2" id="foto-2" accept="image/*,.pdf">
+      </div>
+      <div>
+        <label for="foto-3">Foto donación (opcional)</label>
+        <input type="file" name="foto-3" id="foto-3" accept="image/*,.pdf">
+      </div>
+      <div id="nombre-input" class="grupo-input">
+        <label for="nombre">Nombre donante:</label>
+        <input id="nombre" name="nombre" maxlength="80" minlength= "3" size="80" required>
+      </div>
+      <div id="email-input" class="grupo-input">
+        <label for="email">Email:</label>
+        <input id="email" name="email"  type="email" size="30"  required>
+      </div>
+      <div id="celular-input" class="grupo-input">
+        <label for="celular">Número celular contacto:</label>
+        <input id="celular" name="celular" size="15"  type="tel">
+      </div>
+      <div class="botones">
+        <button type="button" id="envio">
+          Agregar Donación
+        </button>
+      </div>
+      <div id="confirmacion" hidden>
+        ¿Confirma que desea enviar esta donación?
+        <button type="submit" id="si">
+          Sí, confirmo
+        </button>
+        <button type="button" id="no">
+          No, quiero volver al formulario
+        </button>
+      </div>
+      <div id="gracias" hidden>
+        Hemos recibido la información de su donación. Muchas gracias.
+      </div>
+    </form>
+    
+    <div class="inicio">
+      <a id="inicio" href="{{ url_for('inicio') }}" >Volver al inicio</a>
+  </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/agregar-donacion.js') }}"></script>
+
+</body>
+</html>

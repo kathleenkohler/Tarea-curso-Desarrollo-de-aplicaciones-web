@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/informacion-donacion.css')}}">
+    
+</head>
+<body>
+    <div class="info">
+    <div>
+        <h1 id="donacion">Donación</h1>
+    </div>
+    <div class="don">
+        {% for don in data%}
+            <p>Región: {{ don.region }} </p>
+            <p>Comuna: {{ don.comuna }} </p>
+            <p>Calle y número: {{ don.calle }} </p>
+            <p>Tipo: {{ don.tipo }} </p>
+            <p>Cantidad: {{ don.cantidad }} </p>
+            <p>Descripción: {{ don.descripcion }} </p>
+            <p>Condiciones de retiro: {{ don.condiciones }} </p>
+            <p>Foto 1: 
+                <img id="foto1" src="{{ don.foto1 }}" alt="Image" width="640" height="480"/>
+            </p>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <img src="{{ don.foto1 }}" alt="Image" width="1280" height="1024"/>
+                </div>
+            </div>
+            {% if data.foto2 %}
+            <p>Foto 2: 
+                <img id="foto2" src="{{ don.foto2 }}" alt="Image" width="640" height="480"/>
+            </p>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <img src="{{ don.foto2 }}" alt="Image" width="1280" height="1024"/>
+                </div>
+            </div>
+            {% endif %}
+            {% if data.foto3 %}
+            <p>Foto 3: 
+                <img id="foto3" src="{{ don.foto3 }}" alt="Image" width="640" height="480"/>
+            </p>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <img src="{{ don.foto3 }}" alt="Image" width="1280" height="1024"/>
+                </div>
+            </div>
+            {% endif %}
+            <p>Nombre: {{ don.nombre }}</p>
+            <p>Email: {{ don.email }}</p>
+            <p>Número de celular: {{ don.celular }}</p>
+        {% endfor %}
+        <a id="don" href="{{ url_for('ver_donacion', page=1) }}">Volver a donaciones</a> 
+    </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/informacion-donacion.js') }}"></script>
+</body>
+</html>

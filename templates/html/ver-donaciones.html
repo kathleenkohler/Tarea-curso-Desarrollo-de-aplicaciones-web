@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ver.css')}}">
+    
+</head>
+
+<body>
+    <div>
+        <h1 id="donaciones">Donaciones</h1>
+    </div>
+    <table>
+        <tr>
+            <th>Comuna</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Foto</th>
+        </tr>
+        {% if data %}
+            {% for don in data%}
+            <tr class="row">
+                <td><a href="{{ url_for('info_donacion', id=don.id) }}">
+                    {{ don.comuna }}
+                  </a></td>
+                  <td><a href="{{ url_for('info_donacion', id=don.id) }}">
+                    {{ don.tipo }}
+                  </a></td>
+                  <td><a href="{{ url_for('info_donacion', id=don.id) }}">
+                    {{ don.cantidad }}
+                  </a></td>
+                  <td><a href="{{ url_for('info_donacion', id=don.id) }}">
+                    {{ don.fecha }}
+                  </a></td>
+                  <td><a href="{{ url_for('info_donacion', id=don.id) }}">
+                    {{ don.nombre }}
+                  </a></td>
+                  <td>
+                    <img src="{{ don.foto }}" alt="Image" width="120" height="120">
+                  </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+    <div>
+        <span><a id="atras" href="{{ url_for('ver_donacion', page=pag.pag-1) }}">&lt;</a></span>
+        <span>{{ pag.pag }}</span>
+        <span><a id="adelante" href="{{ url_for('ver_donacion', page=pag.pag+1) }}">&gt;</a></span>
+    </div>
+    <div class="inicio">
+        <a id="inicio" href="{{ url_for('inicio') }}">Volver al inicio</a> 
+    </div>
+    <script src="{{ url_for('static', filename='js/ver-donaciones.js') }}"></script>
+
+</body>
+
+</html>
